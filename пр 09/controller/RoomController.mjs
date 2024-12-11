@@ -10,7 +10,6 @@ export const createRoom = async (req, res) => {
     }
 };
 
-// Добавим другие CRUD операции
 export const getAllRooms = async (req, res) => {
     try {
         const rooms = await Room.find();

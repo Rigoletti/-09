@@ -11,12 +11,12 @@ const userSchema = new mongoose.Schema({
     },
     middleName: {
         type: String,
-        required: false, 
+        required: false,
     },
     email: {
         type: String,
         required: true,
-        unique: true, 
+        unique: true,
     },
     phone: {
         type: String,
@@ -33,5 +33,5 @@ const userSchema = new mongoose.Schema({
     },
 });
 
-const User = mongoose.model('User ', userSchema);
+const User = mongoose.model('User', userSchema); 
 export default User;

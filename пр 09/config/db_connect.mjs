@@ -2,14 +2,19 @@ import mongoose from 'mongoose';
 
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/delete', {
+        if (mongoose.connection.readyState === 1) {
+            console.log('Уже подключено к MongoDB');
+            return;
+        }
+
+        await mongoose.connect(process.env.MongoDB, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
-        console.log('MongoDB connected');
+        console.log('MongoDB подключен');
     } catch (error) {
-        console.error('MongoDB connection error:', error);
-        process.exit(1);
+        console.error('Ошибка подключения к MongoDB:', error);
+        process.exit(1); 
     }
 };
 

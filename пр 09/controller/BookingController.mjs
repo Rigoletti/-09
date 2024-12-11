@@ -17,7 +17,6 @@ export const createBooking = async (req, res) => {
     }
 };
 
-// Добавим другие CRUD операции
 export const getAllBookings = async (req, res) => {
     try {
         const bookings = await Booking.find().populate('user room');
